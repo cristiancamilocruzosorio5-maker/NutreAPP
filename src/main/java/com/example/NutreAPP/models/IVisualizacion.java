@@ -12,7 +12,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 @Entity
 @Table(name = "visualizaciones")
-public class Visualizacion {
+@Repository
+public interface IVisualizacion extends JpaRepository<Visualizacion, UUID> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

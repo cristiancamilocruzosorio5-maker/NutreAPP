@@ -1,6 +1,6 @@
 package com.example.NutreAPP.models;
-
-public class Video {
+@Repository
+public interface Video extends JpaRepository<Video, UUID> {
 
     private UUID id;
     private String titulo;
