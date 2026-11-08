@@ -1,6 +1,5 @@
 package com.example.NutreAPP.models;
 
-
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -10,44 +9,51 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 @Entity
 @Table(name = "visualizaciones")
-@Repository
-public interface IVisualizacion extends JpaRepository<Visualizacion, UUID> {
+public class Visualizacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column(name = "fecha_visualizacion, nullable = false, unique = false")
-    private LocalDate fecha_visulizacion;
-    @Column(name = "completado, nullable = false, unique = false")
+
+    @Column(name = "fecha_visualizacion", nullable = false)
+    private LocalDate fechaVisualizacion;
+
+    @Column(name = "completado", nullable = false)
     private Boolean completado;
+
     public Visualizacion() {
     }
-    public Visualizacion(UUID id, LocalDate fecha_visulizacion, Boolean completado) {
+
+    public Visualizacion(UUID id, LocalDate fechaVisualizacion, Boolean completado) {
         this.id = id;
-        this.fecha_visulizacion = fecha_visulizacion;
-        this.completado = completado;
-    }
-    public UUID getId() {
-        return id;
-    }
-    public void setId(UUID id) {
-        this.id = id;
-    }
-    public LocalDate getFecha_visulizacion() {
-        return fecha_visulizacion;
-    }
-    public void setFecha_visulizacion(LocalDate fecha_visulizacion) {
-        this.fecha_visulizacion = fecha_visulizacion;
-    }
-    public Boolean getCompletado() {
-        return completado;
-    }
-    public void setCompletado(Boolean completado) {
+        this.fechaVisualizacion = fechaVisualizacion;
         this.completado = completado;
     }
 
-    
-    
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public LocalDate getFechaVisualizacion() {
+        return fechaVisualizacion;
+    }
+
+    public void setFechaVisualizacion(LocalDate fechaVisualizacion) {
+        this.fechaVisualizacion = fechaVisualizacion;
+    }
+
+    public Boolean getCompletado() {
+        return completado;
+    }
+
+    public void setCompletado(Boolean completado) {
+        this.completado = completado;
+    }
 }

@@ -1,14 +1,21 @@
 package com.example.NutreAPP.models;
+
 import java.util.UUID;
 
 import com.example.NutreAPP.models.helpers.Departamento;
 import com.example.NutreAPP.models.helpers.Rol;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity 
-@Table (name = "usuarios")
-
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
@@ -24,7 +31,6 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(name = "rol", nullable = false, unique = false)
     private Rol rol;
-
 
     @Enumerated(EnumType.STRING)
     @Column(name = "departamento", nullable = false)
@@ -92,6 +98,4 @@ public class Usuario {
     public void setContrasena_hash(String contrasena_hash) {
         this.contrasena_hash = contrasena_hash;
     }
-
-
 }
